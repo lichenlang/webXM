@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="img/track_60_d464a9a.png" type="image/x-icon"/>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/audio.css">
+		<link rel="stylesheet" type="text/css" href="css/lbt.css">
+		<link rel="stylesheet" type="text/css" href="css/footer.css">
+		<title>喜马拉雅FM</title>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/audio.js"></script>
+		<script type="text/javascript" src="js/move3.js"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+
+			song : [
+				{
+
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+		//轮播图部分
+		 var oPic=document.getElementById('pic');
+		 var oPrev=getByClass(oPic,'prev')[0];
+		 var oNext=getByClass(oPic,'next')[0];
+		 
+		 var aLi=oPic.getElementsByTagName('li');
+		 
+		 var arr=[];
+		 
+		 for(var i=0;i<aLi.length;i++)
+		 {
+		   var oImg=aLi[i].getElementsByTagName('img')[0];
+		   
+		 	 arr.push([parseInt(getStyle(aLi[i],'left')),parseInt(getStyle(aLi[i],'top')),
+			           getStyle(aLi[i],'zIndex'),oImg.width,parseFloat(getStyle(aLi[i],'opacity')*100)]);
+		 }
+		 
+		 
+		 oPrev.onclick=function()
+		 {
+		     arr.push(arr[0]);
+			 arr.shift();
+			     for(var i=0;i<aLi.length;i++)
+		         {
+				     var oImg=aLi[i].getElementsByTagName('img')[0];
+						
+						aLi[i].style.zIndex=arr[i][2];
+						startMove(aLi[i],{left:arr[i][0],top:arr[i][1],opacity:arr[i][4]});
+						startMove(oImg,{width:arr[i][3]});
+				 }
+				
+		 }
+		 
+		oNext.onclick=function()
+		 {
+		      arr.unshift(arr[arr.length-1]);
+			  arr.pop();
+			     for(var i=0;i<aLi.length;i++)
+		         {
+				     var oImg=aLi[i].getElementsByTagName('img')[0];
+						
+						aLi[i].style.zIndex=arr[i][2];
+						startMove(aLi[i],{left:arr[i][0],top:arr[i][1],opacity:arr[i][4]});
+						startMove(oImg,{width:arr[i][3]});
+				 }
+		 }
+		 
+		 function getStyle(obj,name)
+		 {
+		       if(obj.currentStyle){ return obj.currentStyle[name]; }
+			   else{ return getComputedStyle(obj,false)[name]; }
+		 }
+	  }
+	  
+	function getByClass(oParent,sClass)
+	  {
+	      var aResult=[];
+		  var aEle=oParent.getElementsByTagName('*');
+		  
+			  for(var i=0;i<aEle.length;i++)
+			  {
+				 if(aEle[i].className==sClass)
+				 {
+					aResult.push(aEle[i]);
+				 }
+			  }
+		  return aResult;
+	
+	}
+	
+</script>
+	<style type="text/css">
+	</style>
+	</head>
+	<body>
+		<!-- 头部分 -->
+		
+		<header class="header">
+			<div class="header_d1">
+				<img src="../img/logo_f4a8f02.png">
+				<a class="header_a1" href="http://www.baidu.com"><span>发现</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>我的</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>app下载</span></a>
+				<div id="head_ss"><input type="text" placeholder="专辑/声音/用户" ><a href="http://www.baidu.com"><img src="../img/sistrix1.png"></a></div>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/cloudversify1.png"><p>&nbsp&nbsp上传&nbsp&nbsp</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/docker1.png"><p>主播后台</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/bullhorn1.png"><p>有声化</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/itunes-note1.png"><p>小雅音箱</p></a>
+			</div>
+		</header>
+		
+		
+		
+		<!-- 播放器部分 -->
+		
+		
+		<div class="audio-box">
+		<div class="audio-container">
+
+			<div class="audio-view">
+				<div class="audio-cover"></div>
+				<div class="audio-body">
+					<h3 class="audio-title">未知歌曲</h3>
+					<div class="audio-backs">
+						<div class="audio-this-time">00:00</div>
+						<div class="audio-count-time">00:00</div>
+						<div class="audio-setbacks">
+							<i class="audio-this-setbacks">
+								<span class="audio-backs-btn"></span>
+							</i>
+							<span class="audio-cache-setbacks">
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="audio-btn">
+					<div class="audio-select">
+						<div action="prev" class="icon-fast-backward"></div>
+						<div action="play" data-on="icon-play" data-off="icon-pause" class="icon-play"></div>
+						<div action="next" class="icon-fast-forward"></div>
+						<!--<div action="menu" class="icon-list-alt"></div>-->
+						<div action="volume" class="icon-volume-up">
+							<div class="audio-set-volume">
+								<div class="volume-box">
+									<i><span  class="audio-backs-btn"></span></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	<!-- 身体上部分 -->
+	<tbody>
+		<div class="tbody">
+			<div class="pic1">
+				<div class="pic" id="pic">
+					<span class="prev"><img src="img/arrow1.png" alt="arrow" /></span>
+					<span class="next"><img src="img/arrow2.png" alt="arrow" /></span>
+					<ul>
+						<li class="pic1"><a href="#"><img src="img/lbt1.jpg" /></a></li>
+						<li class="pic2"><a href="#"><img src="img/lbt2.jpg" /></a></li>
+						<li class="pic3"><a href="#"><img src="img/lbt3.jpg" /></a></li>
+						<li class="pic4"><a href="#"><img src="img/lbt4.png" /></a></li>
+						<li class="pic5"><a href="#"><img src="img/lbt5.jpg" /></a></li>
+						<li class="pic6"><a href="#"><img src="img/lbt6.png" /></a></li>
+						<li class="pic7"><a href="#"><img src="img/lbt7.jpg" /></a></li>
+						<li class="pic7"><a href="#"><img src="img/lbt8.jpg" /></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="st_ewm">
+				<img src="img/slogan_7304e3e.png" id="img1">
+				<img src="img/ewm.png" id="img2">
+			</div>
+		</div>
+	</tbody>
+		<div class="st_fl">
+			<div class="st_fenlei">
+				<h4><a href="">有声书</a></h4>
+					<div class="fenlei_d1">
+						<span><a href="">文学</a></span>
+						<span><a href="" class="fenlei_sp">言情</a></span>
+						<br>
+						<span><a href="">生活</a></span>
+						<span><a href="" class="fenlei_sp">悬疑</a></span>
+						<br>
+						<span><a href="">教材</a></span>
+						<span><a href="" class="fenlei_sp">更多></a></span>
+					</div>
+			</div>
+			<div class="st_fenlei">
+				<h4 id="h4_a2"><a href="">儿童</a></h4>
+					<div class="fenlei_d1">
+						<span><a href="">儿童文学</a></span>
+						<span><a href="" class="fenlei_sp">科普百科</a></span>
+						<br>
+						<span><a href="">少儿音乐</a></span>
+						<span><a href="" class="fenlei_sp">少儿视频</a></span>
+						<br>
+						<span><a href="">学前英语</a></span>
+						<span><a href="" class="fenlei_sp">更多></a></span>
+					</div>
+			</div>
+			<div class="st_fenlei">
+				<h4 id="h4_a3"><a href="">娱乐</a></h4>
+					<div class="fenlei_d1">
+						<span><a href="">音乐</a></span>
+						<span><a href="" class="fenlei_sp">相声评书</a></span>
+						<br>
+						<span><a href="">感情生活</a></span>
+						<span><a href="" class="fenlei_sp">娱乐</a></span>
+						<br>
+						<span><a href="">影视</a></span>
+						<span><a href="" class="fenlei_sp">更多></a></span>
+					</div>
+			</div>
+			<div class="st_fenlei">
+				<h4 id="h4_a4"><a href="">知识</a></h4>
+					<div class="fenlei_d1">
+						<span><a href="">历史</a></span>
+						<span><a href="" class="fenlei_sp">商业财经</a></span>
+						<br>
+						<span><a href="">人文</a></span>
+						<span><a href="" class="fenlei_sp">教育培训</a></span>
+						<br>
+						<span><a href="">IT科技</a></span>
+						<span><a href="" class="fenlei_sp">外语</a></span>
+					</div>
+			</div>
+			<div class="st_fenlei">
+					<h4 id="h4_a5"><a href="">生活</a></h4>
+						<div class="fenlei_d1">
+						<span><a href="">旅游</a></span>
+						<span><a href="" class="fenlei_sp">健康养生</a></span>
+						<br>
+						<span><a href="">时尚生活</a></span>
+						<span><a href="" class="fenlei_sp">头条</a></span>
+						<br>
+						<span><a href="">二次元</a></span>
+						<span><a href="" class="fenlei_sp">戏曲</a></span>
+					</div>
+			</div>
+			<div class="st_phb">
+				<a href=""><img src="img/app1.png" id="a1">&nbsp&nbsp全部分类</a>
+				<br>
+				<a href=""><img src="img/rest1.png" id="a2">&nbsp&nbsp排行榜&nbsp&nbsp&nbsp&nbsp</a>
+			</div>
+		</div>
+		<!-- 推荐部分 图文部分 -->
+		<div class="st">
+			<div class="st_tw">
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>猜你喜欢</h2>
+						<span>↻ 换一批</span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>有声书</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>儿童</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>相声评书</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>外语</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>音乐</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>情感生活</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>头条</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+				<div class="st_twtj">
+					<div class="twtj_01d">
+						<h2>教育培训</h2>
+						<span><a href="">更多</a></span>
+					</div>
+					<div class="twtj_02d">
+						<a href="" class="twtj_01a"><img src="img/twtj2.jpg"></a>
+						<a href=""  class="twtj_02a">郭德纲21年相声精选</a>
+						<br>
+						<a href=""  class="twtj_03a">by：郭德纲相声</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj1.jpg"></a>
+						<a href=""  class="twtj_02a">读者</a>
+						<br>
+						<a href=""  class="twtj_03a">by：读者</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj3.jpg"></a>
+						<a href=""  class="twtj_02a">鲜快报</a>
+						<br>
+						<a href=""  class="twtj_03a">by：封面新闻</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj4.jpg"></a>
+						<a href=""  class="twtj_02a">阴阳鬼术-韩诺播讲</a>
+						<br>
+						<a href=""  class="twtj_03a">by：说书人韩诺</a>
+					</div>
+					<div class="twtj_02d">
+						<a href=""  class="twtj_01a"><img src="img/twtj5.jpg"></a>
+						<a href=""  class="twtj_02a">晓说2018</a>
+						<br>
+						<a href=""  class="twtj_03a">by：超级制作</a>
+					</div>
+				</div>
+			</div>
+			<div class="st_dl">
+				<div class="d1_d1">
+					<img src="img/yonghu.png">
+					<p>未登录<br>登录一下,让我了解你</p>
+				</div>
+				<div class="d1_d2">
+					<a href="">登录</a>
+				</div>
+			</div>
+			<div class="st_d2">
+				<div class="std2_d1">
+					<img src="img/guanggao.jpg">
+					<h6>广告位长期招租</h6>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+				<div class="std2_d2">
+					<img src="img/youst.jpg">
+					<h6><a href="">假如《如懿传》里的人物是一首歌</a></h6>
+					<p>7首声音</p>
+				</div>
+			</div>
+			<div class="st_d3">
+				<h3><img src="img/ICON_xihuan_x.png">暖心情话</h3>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+			</div>
+			<div class="st_d3">
+				<h3><img src="img/ICON_xihuan_x.png">每天听本好书</h3>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+			</div>
+			<div class="st_d3">
+				<h3><img src="img/ICON_xihuan_x.png">音乐伴我工作学习</h3>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+				<a href=""><img src="img/ICON_zan_x.png">22.晓说2018-与克林顿聊聊51区和外星人
+				阿斯大赛的</a>
+			</div>
+			<div class="st_d2">
+				<div class="std2_d1">
+					<img src="img/guanggao.jpg">
+					<h6>广告位长期招租</h6>
+				</div>
+				<div class="std2_d1">
+					<img src="img/guanggao.jpg">
+					<h6>广告位长期招租</h6>
+				</div>
+				<div class="std2_d1">
+					<img src="img/guanggao.jpg">
+					<h6>广告位长期招租</h6>
+				</div>
+				<div class="std2_d1">
+					<img src="img/guanggao.jpg">
+					<h6>广告位长期招租</h6>
+				</div>
+			</div>
+		</div>
+		<footer>
+
+	<div class="rootfooter">
+		<div class=rootfooter-one>
+			<p>热门搜索</p>
+			<a href="#">鬼故事</a>
+			<a href="#">武侠小说</a>
+			<a href="#">京剧</a>
+			<a href="#">睡前故事</a>
+		</div>
+		<div class=rootfooter-one>
+			<p>特色产品</p>
+			<a href="#">新声活商城-开启你的新生活</a>
+			<a href="#">声创空间</a>
+			<a href="#">游戏联运</a>
+			<a href="#">街机</a>
+		</div>
+		<div class=rootfooter-one>
+			<p>关注我们</p>
+			<a href="#">官方博客</a>
+			<a href="#">微信公众号</a>
+			<a href="#">新浪微博</a>
+			<a href="#">QQ公众号</a>
+			<a href="#">贴吧</a>
+			<a href="#">兴趣部落</a>
+		</div>
+		
+	  
+	</div>
+	<div class="bootfooter-two">
+			<p id="pl">合作与服务</p>
+		<div class="two">
+		<a href="#"><img src="img/footer3.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer1.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer4.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer2.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	</div>
+	
+	<div class="there">
+		<p class="there-p">历史故事频道为您提供丰富的历史故事有声内容，在这里您可以在线收听历史,历史遗迹,旅游历史等相关信息，
+		优质有声节目供您选择，就在喜马拉雅FM,喜马拉雅FM，
+		四亿用户的选择。旅游历史频道为您提供历史古迹、文化遗存、
+		墓葬遗址、宫殿庙宇、禅林寺院、亭台楼阁、建筑群落、
+		塔影桥虹等让您感兴趣的地方人文景点,在旅行中感受文化艺术的熏陶！
+		</p>
+	</div>
+	
+	<div class="four">
+		<div class="four-title">
+			<a href="#">关于我们&nbsp;|&nbsp</a>
+			<a href="#">联系我们&nbsp;|&nbsp</a>
+			<a href="#">公司新闻&nbsp;|&nbsp</a>
+			<a href="#">招贤纳士&nbsp;|&nbsp</a>
+			<a href="#">2019校园招聘&nbsp;|&nbsp</a>
+			<a href="#">使用协议&nbsp;|&nbsp</a>
+			<a href="#">版权声明&nbsp;|&nbsp</a>
+			<a href="#">开放平台&nbsp;|&nbsp</a>
+			<a href="#">直播平台&nbsp;|&nbsp</a>
+			<a href="#">自律承诺&nbsp;|&nbsp</a>
+		</div>
+		<p class="five">Copyright © 2012-2018 www.ximalaya.com lnc.ALL Rights Reserved</p>
+		<p class="six">上海证大喜马拉雅网络科技有限公司 版权所有  公司地址：上海市闵行区紫星路588号2幢2062室  客服热线：400-838-5616</p>
+	</div>
+	
+	
+
+</footer>	
+	</body>
+</html>

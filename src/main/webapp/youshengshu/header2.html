@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/audio.css">
+		<title>喜马拉雅FM</title>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/audio.js"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+
+			song : [
+				{
+
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+		
+		
+	}
+</script>
+	
+	</head>
+	<body>
+		<!-- 头部分 -->
+		
+		
+		<header class="header">
+			<div class="header_d1">
+				<img src="../img/logo_f4a8f02.png">
+				<a class="header_a1" href="http://www.baidu.com"><span>发现</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>我的</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>app下载</span></a>
+				<div id="head_ss"><input type="text" placeholder="专辑/声音/用户" ><a href="http://www.baidu.com"><img src="../img/sistrix1.png"></a></div>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/cloudversify1.png"><p>&nbsp&nbsp上传&nbsp&nbsp</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/docker1.png"><p>主播后台</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/bullhorn1.png"><p>有声化</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/itunes-note1.png"><p>小雅音箱</p></a>
+			</div>
+		</header>
+		
+		
+		
+		<!-- 播放器部分 -->
+		
+		
+		<div class="audio-box">
+		<div class="audio-container">
+
+			<div class="audio-view">
+				<div class="audio-cover"></div>
+				<div class="audio-body">
+					<h3 class="audio-title">未知歌曲</h3>
+					<div class="audio-backs">
+						<div class="audio-this-time">00:00</div>
+						<div class="audio-count-time">00:00</div>
+						<div class="audio-setbacks">
+							<i class="audio-this-setbacks">
+								<span class="audio-backs-btn"></span>
+							</i>
+							<span class="audio-cache-setbacks">
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="audio-btn">
+					<div class="audio-select">
+						<div action="prev" class="icon-fast-backward"></div>
+						<div action="play" data-on="icon-play" data-off="icon-pause" class="icon-play"></div>
+						<div action="next" class="icon-fast-forward"></div>
+						<!--<div action="menu" class="icon-list-alt"></div>-->
+						<div action="volume" class="icon-volume-up">
+							<div class="audio-set-volume">
+								<div class="volume-box">
+									<i><span  class="audio-backs-btn"></span></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	</body>
+</html>

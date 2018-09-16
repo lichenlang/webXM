@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script> -->
+<script type="text/javascript">
+		/*在页面加载完成时生成一个随机的验证码*/
+		onload=function(){
+			createCode();
+		}
+		var code;/*定义一个验证码的全局变量*/
+		function createCode(){/* 生成验证码的函数 */
+			code="";
+			var codeLength=4;
+			var checkCode=document.getElementById("checkNode");
+			checkCode.value="";
+			var selectChar=new Array(1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+			for(var i=0;i<codeLength;i++){
+				var charIndex=Math.floor(Math.random()*61);
+				code+ = selectChar[charIndex];
+			}
+			if (code.length != codeLength) {
+				createCode();
+			}
+			checkCode.innerText=code;
+			
+		}
+ 
+		function validate() {/* 检验输入的验证码的正确性 */
+			var inputCode = document.getElementById("input1").value.toUpperCase();
+			var codeToUp=code.toUpperCase();
+			if(inputCode.length<=0){
+				alert("请输入验证码！");
+				return false;
+			}
+			else if(inputCode != codeToUp){
+				alert("验证码输入错误！");
+				createCode();
+				return false;
+			}
+			else{
+				alert("输入正确，输入的验证码为："+inputCode);
+				return true;
+			}
+		}
+	</script>
+<style type="text/css">
+body {
+	background: url("背景2.jpg");
+	text-align: center;
+}
+
+p {
+margin:0px;
+margin-top:90px;
+	text-align: center;
+	font-size: 30px;
+}
+#show{
+position:relative;
+text-align:center;
+width: 60%;
+height: 50%;
+overflow: hidden;
+padding-left: 525px;
+}
+#left, #right{
+margin:0px;
+padding:0px;
+border:0px;
+width:418px;
+height:300px;
+float: left;
+margin-top: 140px;
+}
+#left{
+font-size: 50px;
+text-align: center;
+margin-top: 210px;
+}
+#right{
+border-left:1px solid blue;
+text-align: center;
+}
+#tell,#check,#next{
+margin-top:40px;
+width:150px;
+height:30px;
+border-radius:15px; 
+background-color: rgba(30, 224, 233, 0.59);
+}
+#sel{
+height: 30px;
+border-radius: 15px;
+}
+#check_div{
+padding-left: 80px;
+}
+#check{
+width:184px;
+}
+#form{
+text-align: center;
+}
+</style>
+</head>
+<body>
+	<p>找回密码</p>
+	<div id="show">
+		<div id="left">喜马拉雅</div>
+		<form action="#" id="form">
+			<div id="right">
+				<div>
+					<select id="sel">
+						<option>中国&nbsp&nbsp&nbsp+86</option>
+						<option>阿鲁巴&nbsp&nbsp&nbsp+297</option>
+						<option>阿富汗&nbsp&nbsp&nbsp+92</option>
+						<option>韩国&nbsp&nbsp&nbsp+123</option>
+					</select> <input type="text" id="tell" placeholder="请输入您的注册手机号"">
+				</div>
+				<div id="check_div">
+	验证码：   <input type="text" id="check" placeholder="请输入验证码"> 
+					<input type="text" id="checkNode" class="code" style="width: 55px" disabled="disabled"> 
+					<a href="#" onclick="createCode()">看不清楚，换一张</a><br>
+				</div>
+				<input type="submit" id="next" value="下一步">
+			</div>
+		</form>
+	</div>
+	已有帐号？
+	<a href="login.html">立即登录</a>
+</body>
+</html>

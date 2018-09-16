@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/audio.css">
+<title>喜马拉雅</title>
+<script type="text/javascript" src="../js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="../js/audio.js"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+
+			song : [
+				{
+
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+		
+		
+	}
+</script>
+<style type="text/css">
+body{
+background-color: rgba(158, 158, 158, 0.16);
+
+}
+ /* 中间*/
+ #main{
+ width: 60%;
+ margin-left: 225px;
+ overflow: hidden;
+ margin: auto;
+ }
+ #main div{
+ float: left;
+ }
+ #main #back{
+    width: 80%;
+    height: 60px;
+ } 
+ #first_u{
+ margin:auto;
+ width: 972px;
+ height: 25px;
+ }
+ #first_m_l img,#first_d_l img{
+ width: 30px;
+ height: 30px;
+ }
+ #first_m_r #yf{
+ float: left;
+ width: 70px;
+ height: 10px;
+ margin-top: 25px;
+     padding-left: 7px
+ }
+ #first_d_r #yf{
+ float: left;
+ width: 75px;
+ height: 10px;
+ margin-top: 25px;
+     padding-left: 7px;
+ }
+ #first_m_r,#first_d_r{
+ width: 80%;
+ }
+ #first_m_r #yf>a,#first_d_r #yf>a{
+ text-decoration: none;
+  color:#03a9f4;
+ }
+ #mousic{
+ margin: 2px;
+ }
+ #mousic>a{
+ margin: 20px;
+ text-decoration: none;
+ color:#03a9f4;
+ padding-top: 1px;
+ }
+ #first,#second,#third,#fourth,#fifth{
+ bcakground-color:white;
+ }
+</style>
+</head>
+<body>
+	<div id="root">
+	<!-- 头部分 -->		
+	<div>
+		<header class="header">
+			<div class="header_d1">
+				<img src="../img/logo_f4a8f02.png">
+				<a class="header_a1" href="http://www.baidu.com"><span>发现</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>我的</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>app下载</span></a>
+				<div id="head_ss"><input type="text" placeholder="专辑/声音/用户" ><a href="http://www.baidu.com"><img src="../img/sistrix1.png"></a></div>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/cloudversify1.png"><p>&nbsp&nbsp上传&nbsp&nbsp</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/docker1.png"><p>主播后台</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/bullhorn1.png"><p>有声化</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="../img/itunes-note1.png"><p>小雅音箱</p></a>
+			</div>
+		</header>
+		</div>						
+		<!-- 播放器部分 -->			
+		<div class="audio-box">
+		<div class="audio-container">
+			<div class="audio-view">
+				<div class="audio-cover"></div>
+				<div class="audio-body">
+					<h3 class="audio-title">未知歌曲</h3>
+					<div class="audio-backs">
+						<div class="audio-this-time">00:00</div>
+						<div class="audio-count-time">00:00</div>
+						<div class="audio-setbacks">
+							<i class="audio-this-setbacks">
+								<span class="audio-backs-btn"></span>
+							</i>
+							<span class="audio-cache-setbacks">
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="audio-btn">
+					<div class="audio-select">
+						<div action="prev" class="icon-fast-backward"></div>
+						<div action="play" data-on="icon-play" data-off="icon-pause" class="icon-play"></div>
+						<div action="next" class="icon-fast-forward"></div>
+						<!--<div action="menu" class="icon-list-alt"></div>-->
+						<div action="volume" class="icon-volume-up">
+							<div class="audio-set-volume">
+								<div class="volume-box">
+									<i><span  class="audio-backs-btn"></span></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+		
+		
+		<!--  主题 -->
+		<main id="main" style="padding-top:85px;">
+		<div id="main-all">
+		<div id="back">
+		<a href="#">首页</a>&gt全部分类
+		</div>			
+			<div id="first" style="background-color: white;padding-top: 10px;">
+			<!--热门分类区  -->
+				<div id="first_u">
+				<div id="a" style="width: 5px;height: 18px;background-color: red;border-radius: 10px;margin-right: 8px;"></div>
+				热门分类
+				</div>
+				<hr style="color: red;width: 90%;margin: 0px;">
+				<div id="first_m_l" style="width: 120px;height: 120px;border-right: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="有声.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">有声书</a>
+				</div>
+				<div id="first_m_r">
+				<div id="yf"><a href="#">文学</a></div>
+				<div id="yf"><a href="#">言情</a></div>
+				<div id="yf"><a href="#">生活</a></div>
+				<div id="yf"><a href="#">悬疑</a></div>
+				<div id="yf"><a href="#">教科</a></div>
+				<div id="yf"><a href="#">都市</a></div>
+				<div id="yf"><a href="#">经典</a></div>
+				<div id="yf"><a href="#">幻想</a></div>
+				<div id="yf"><a href="#">童书</a></div>
+				<div id="yf"><a href="#">武侠</a></div>
+				<div id="yf"><a href="#">励志</a></div>
+				<div id="yf"><a href="#">历史</a></div>
+				</div>
+				<!-- 复制上一段 -->
+				<hr style="color: red;width: 90%;margin: 0px;">
+				<div id="first_d_l" style="width: 120px;height: 120px;border-right: 1px solid rgba(95, 84, 84, 0.54);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="儿童.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">儿童书</a>
+				</div>
+				<div id="first_d_r">
+				<div id="yf"><a href="#">儿童文学</a></div>
+				<div id="yf"><a href="#">科普百科</a></div>
+				<div id="yf"><a href="#">少儿音乐</a></div>
+				<div id="yf"><a href="#">少儿影视</a></div>
+				<div id="yf"><a href="#">学前英语</a></div>
+				<div id="yf"><a href="#">学科教育</a></div>
+				<div id="yf"><a href="#">少儿国学</a></div>
+				<div id="yf"><a href="#">儿童教育</a></div>
+				<div id="yf"><a href="#">健康</a></div>
+				<div id="yf"><a href="#">父母教育</a></div>
+				<div id="yf"><a href="#">少儿艺术</a></div>
+				</div>
+			</div>                            
+				<hr style="color: red;width: 90%;margin: 0px;">
+				
+				
+				<!-- 娱乐分区 -->
+			<div id="second" style="margin-top: 20px;background-color: white; padding-top: 10px;">
+			<div id="second_u" style="width: 60%;">
+				<div id="a" style="width: 5px;height: 18px;background-color: #FFC107;border-radius: 10px;margin-right: 8px;"></div>
+				娱乐
+				</div>
+				<hr style="color: red;width: 90%;margin: 0px;">
+			  <div id="second_l" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="音乐.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">音乐</a>
+				<div id="second_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">流行</a></div>
+				<div id="mousic"><a href="#">摇滚</a></div>
+				<div id="mousic"><a href="#">民谣</a></div>
+				<div id="mousic"><a href="#">轻音乐</a></div>
+				<div id="mousic"><a href="#">古风</a></div>
+				<div id="mousic"><a href="#">爵士</a></div>
+				<div id="mousic"><a href="#">蓝调</a></div>
+				<div id="mousic"><a href="#">乡村</a></div>
+				<div id="mousic"><a href="#">古典</a></div>
+				<div id="mousic"><a href="#">嘻哈</a></div>
+				<div id="mousic"><a href="#">电音</a></div>
+				<div id="mousic"><a href="#">后摇</a></div>
+				<div id="mousic"><a href="#">新世纪</a></div>
+				<div id="mousic"><a href="#">声乐</a></div>
+				<div id="mousic"><a href="#">拉丁</a></div>
+				<div id="mousic"><a href="#">金属</a></div>
+				<div id="mousic"><a href="#">独立</a></div>
+				<div id="mousic"><a href="#">儿歌</a></div>
+				</div>
+				</div>
+				<div id="second_m" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="相声.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">相声评书</a>
+				<div id="second_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">相声</a></div>
+				<div id="mousic"><a href="#">评书</a></div>
+				<div id="mousic"><a href="#">小品</a></div>
+				<div id="mousic"><a href="#">古曲</a></div>
+				</div>
+				</div>
+				 <div id="second_r" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="情感.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">情感生活</a>
+				<div id="second_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">故事</a></div>
+				<div id="mousic"><a href="#">美文</a></div>
+				<div id="mousic"><a href="#">爱情</a></div>
+				<div id="mousic"><a href="#">女性</a></div>
+				<div id="mousic"><a href="#">恋爱</a></div>
+				<div id="mousic"><a href="#">夜话</a></div>
+				<div id="mousic"><a href="#">心理</a></div>
+				<div id="mousic"><a href="#">感情</a></div>
+				<div id="mousic"><a href="#">婚姻</a></div>
+				<div id="mousic"><a href="#">时光</a></div>
+				<div id="mousic"><a href="#">星座</a></div>
+				<div id="mousic"><a href="#">日记</a></div>
+				<div id="mousic"><a href="#">美文故事</a></div>
+				<div id="mousic"><a href="#">犀利</a></div>
+				<div id="mousic"><a href="#">文章</a></div>
+				<div id="mousic"><a href="#">情感教学</a></div>
+				<div id="mousic"><a href="#">原创</a></div>
+				<div id="mousic"><a href="#">非原创</a></div>
+				</div>
+				</div>
+				<div id="second_dl" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="娱乐.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">娱乐</a>
+				<div id="second_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">搞笑</a></div>
+				<div id="mousic"><a href="#">吐槽</a></div>
+				<div id="mousic"><a href="#">内涵</a></div>
+				<div id="mousic"><a href="#">恶搞</a></div>
+				<div id="mousic"><a href="#">热辣</a></div>
+				<div id="mousic"><a href="#">灵异</a></div>
+				<div id="mousic"><a href="#">直性情</a></div>
+				<div id="mousic"><a href="#">正能量</a></div>
+				</div>
+				</div>
+				<div id="second_dr" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);">
+				<img src="影视.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">影视</a>
+				<div id="second_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">原声</a></div>
+				<div id="mousic"><a href="#">评论</a></div>
+				<div id="mousic"><a href="#">配置</a></div>
+				<div id="mousic"><a href="#">音乐</a></div>
+				<div id="mousic"><a href="#">明星</a></div>
+				</div>
+				</div>
+			</div>
+			
+			
+			          <!--  知识分区-->
+			<div id="third" style="margin-top: 20px;background-color: white;padding-top: 10px;">
+			<div id="third_u" style="width: 60%;">
+				<div id="a" style="width: 5px;height: 18px;background-color: #03A9F4;border-radius: 10px;margin-right: 8px;"></div>
+				知识
+				</div>
+				<hr style="color: red;width: 90%;margin: 0px;">
+			  <div id="third_l" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="历史.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">历史</a>
+				<div id="third_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">正史</a></div>
+				<div id="mousic"><a href="#">野史</a></div>
+				<div id="mousic"><a href="#">战争</a></div>
+				<div id="mousic"><a href="#">名人</a></div>
+				<div id="mousic"><a href="#">纪实</a></div>
+				<div id="mousic"><a href="#">传记</a></div>
+				<div id="mousic"><a href="#">故事</a></div>
+				<div id="mousic"><a href="#">名师</a></div>
+				</div>
+				</div>
+				<div id="third_m" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="财经.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">商业财经</a>
+				<div id="third_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">商界</a></div>
+				<div id="mousic"><a href="#">理财</a></div>
+				<div id="mousic"><a href="#">船票</a></div>
+				<div id="mousic"><a href="#">投资</a></div>
+				<div id="mousic"><a href="#">创业</a></div>
+				<div id="mousic"><a href="#">消费</a></div>
+				<div id="mousic"><a href="#">经管</a></div>
+				<div id="mousic"><a href="#">基金</a></div>
+				<div id="mousic"><a href="#">房产</a></div>
+				<div id="mousic"><a href="#">期货</a></div>
+				<div id="mousic"><a href="#">宏观</a></div>
+				<div id="mousic"><a href="#">贵金属</a></div>
+				<div id="mousic"><a href="#">信用卡</a></div>
+				<div id="mousic"><a href="#">信托</a></div>
+				<div id="mousic"><a href="#">外汇</a></div>
+				<div id="mousic"><a href="#">保险</a></div>
+				<div id="mousic"><a href="#">信贷</a></div>
+				<div id="mousic"><a href="#">互联网金融</a></div>
+				<div id="mousic"><a href="#">风险投资</a></div>
+				<div id="mousic"><a href="#">债券</a></div>
+				<div id="mousic"><a href="#">黄金</a></div>
+				</div>
+				</div>
+				 <div id="third_r" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="人文.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">人文</a>
+				<div id="third_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">国学</a></div>
+				<div id="mousic"><a href="#">佛学</a></div>
+				<div id="mousic"><a href="#">文学</a></div>
+				<div id="mousic"><a href="#">名著</a></div>
+				<div id="mousic"><a href="#">纪实</a></div>
+				<div id="mousic"><a href="#">诗歌</a></div>
+				<div id="mousic"><a href="#">艺术</a></div>
+				<div id="mousic"><a href="#">风俗</a></div>
+				<div id="mousic"><a href="#">哲学</a></div>
+				<div id="mousic"><a href="#">心灵</a></div>
+				<div id="mousic"><a href="#">文化</a></div>
+				<div id="mousic"><a href="#">神话</a></div>
+				<div id="mousic"><a href="#">伦理</a></div>
+				<div id="mousic"><a href="#">传记</a></div>
+				<div id="mousic"><a href="#">收藏</a></div>
+				</div>
+				</div>
+				<div id="third_dl" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="培训.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">教育培训</a>
+				<div id="third_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">创业</a></div>
+				<div id="mousic"><a href="#">法律</a></div>
+				<div id="mousic"><a href="#">管理</a></div>
+				<div id="mousic"><a href="#">营销</a></div>
+				<div id="mousic"><a href="#">求职</a></div>
+				<div id="mousic"><a href="#">沟通表达</a></div>
+				<div id="mousic"><a href="#">职场</a></div>
+				<div id="mousic"><a href="#">心理</a></div>
+				<div id="mousic"><a href="#">职业技能</a></div>
+				<div id="mousic"><a href="#">考试培训</a></div>
+				<div id="mousic"><a href="#">新媒体</a></div>
+				<div id="mousic"><a href="#">名人语录</a></div>
+				<div id="mousic"><a href="#">家庭教育</a></div>
+				<div id="mousic"><a href="#">互联网</a></div>
+				<div id="mousic"><a href="#">生活百科</a></div>
+				<div id="mousic"><a href="#">语言</a></div>
+				<div id="mousic"><a href="#">人力资源</a></div>
+				<div id="mousic"><a href="#">历史</a></div>
+				<div id="mousic"><a href="#">人文</a></div>
+				<div id="mousic"><a href="#">励志</a></div>
+				<div id="mousic"><a href="#">国学</a></div>
+				<div id="mousic"><a href="#">哲学</a></div>
+				</div>
+				</div>
+				<div id="third_dm" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);">
+				<img src="科技.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">IT科技</a>
+				<div id="third_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">科技</a></div>
+				<div id="mousic"><a href="#">互联网</a></div>
+				<div id="mousic"><a href="#">创业</a></div>
+				<div id="mousic"><a href="#">极客</a></div>
+				<div id="mousic"><a href="#">评测</a></div>
+				<div id="mousic"><a href="#">数码</a></div>
+				<div id="mousic"><a href="#">程序员</a></div>
+				<div id="mousic"><a href="#">产品经理</a></div>
+				<div id="mousic"><a href="#">移动互联网</a></div>
+				<div id="mousic"><a href="#">大数据</a></div>
+				<div id="mousic"><a href="#">新媒体</a></div>
+				<div id="mousic"><a href="#">智能</a></div>
+				<div id="mousic"><a href="#">大公司</a></div>
+				<div id="mousic"><a href="#">智能软件</a></div>
+				<div id="mousic"><a href="#">探秘</a></div>
+				</div>
+				</div>
+				<div id="third_dr" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);">
+				<img src="外语.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">外语</a>
+				<div id="third_lr" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">英语</a></div>
+				<div id="mousic"><a href="#">日语</a></div>
+				<div id="mousic"><a href="#">韩语</a></div>
+				<div id="mousic"><a href="#">法语</a></div>
+				<div id="mousic"><a href="#">泰语</a></div>
+				<div id="mousic"><a href="#">德语</a></div>
+				<div id="mousic"><a href="#">俄语</a></div>
+				<div id="mousic"><a href="#">西班牙语</a></div>
+				<div id="mousic"><a href="#">意大利语</a></div>
+				<div id="mousic"><a href="#">葡萄牙语</a></div>
+				<div id="mousic"><a href="#">其他语言</a></div>
+				</div>
+				</div>
+			</div>
+			
+			
+			<!--  生活分区-->
+			<div id="fourth" style="margin-top: 20px;background-color: white;padding-top: 10px;">
+			<div id="fourth_u" style="width: 60%;">
+				<div id="a" style="width: 5px;height: 18px;background-color: #4CAF50;border-radius: 10px;margin-right: 8px;"></div>
+				生活
+				</div>
+				<hr style="color: red;width: 90%;margin: 0px;">
+			  <div id="fourth_l" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="旅游.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">旅游</a>
+				<div id="fourth_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">故事</a></div>
+				<div id="mousic"><a href="#">情感</a></div>
+				<div id="mousic"><a href="#">历史</a></div>
+				<div id="mousic"><a href="#">文化</a></div>
+				<div id="mousic"><a href="#">地理</a></div>
+				<div id="mousic"><a href="#">户外</a></div>
+				<div id="mousic"><a href="#">音乐</a></div>
+				<div id="mousic"><a href="#">名师</a></div>
+				</div>
+				</div>
+				<div id="fourth_m" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="养生.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">健康养生</a>
+				<div id="fourth_mf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">中医</a></div>
+				<div id="mousic"><a href="#">催眠</a></div>
+				<div id="mousic"><a href="#">两性健康</a></div>
+				<div id="mousic"><a href="#">健康常识</a></div>
+				<div id="mousic"><a href="#">营养</a></div>
+				<div id="mousic"><a href="#">疾病预防</a></div>
+				<div id="mousic"><a href="#">心理</a></div>
+				<div id="mousic"><a href="#">艾灸</a></div>
+				<div id="mousic"><a href="#">针灸</a></div>
+				<div id="mousic"><a href="#">偏方</a></div>
+				<div id="mousic"><a href="#">黄帝内经</a></div>
+				</div>
+				</div>
+				 <div id="fourth_r" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="时尚.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">时尚生活</a>
+				<div id="fourth_rf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">美食</a></div>
+				<div id="mousic"><a href="#">生活家</a></div>
+				<div id="mousic"><a href="#">家居</a></div>
+				<div id="mousic"><a href="#">美容</a></div>
+				<div id="mousic"><a href="#">减肥塑形</a></div>
+				<div id="mousic"><a href="#">达人</a></div>
+				<div id="mousic"><a href="#">运动</a></div>
+				<div id="mousic"><a href="#">时尚</a></div>
+				<div id="mousic"><a href="#">萌宠</a></div>
+				<div id="mousic"><a href="#">摄影</a></div>
+				<div id="mousic"><a href="#">珠宝腕表</a></div>
+				<div id="mousic"><a href="#">茶酒</a></div>
+				<div id="mousic"><a href="#">芳疗</a></div>
+				</div>
+				</div>
+				<div id="fourth_dl" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="头条.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">头条</a>
+				<div id="fourth_dlf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">社会</a></div>
+				<div id="mousic"><a href="#">民生</a></div>
+				<div id="mousic"><a href="#">国内</a></div>
+				<div id="mousic"><a href="#">国际</a></div>
+				<div id="mousic"><a href="#">财经</a></div>
+				<div id="mousic"><a href="#">娱乐</a></div>
+				<div id="mousic"><a href="#">文化</a></div>
+				<div id="mousic"><a href="#">体育</a></div>
+				<div id="mousic"><a href="#">科技</a></div>
+				<div id="mousic"><a href="#">军事</a></div>
+				<div id="mousic"><a href="#">听两会</a></div>
+				</div>
+				</div>
+				<div id="fourth_dm" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);">
+				<img src="二次元.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">二次元</a>
+				<div id="fourth_dmf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">游戏</a></div>
+				<div id="mousic"><a href="#">音乐</a></div>
+				<div id="mousic"><a href="#">广播剧</a></div>
+				<div id="mousic"><a href="#">实况解说</a></div>
+				<div id="mousic"><a href="#">有声小说</a></div>
+				<div id="mousic"><a href="#">美女主播</a></div>
+				<div id="mousic"><a href="#">陪睡</a></div>
+				<div id="mousic"><a href="#">动漫</a></div>
+				<div id="mousic"><a href="#">同人</a></div>
+				<div id="mousic"><a href="#">生活娱乐</a></div>
+				<div id="mousic"><a href="#">古风</a></div>
+				<div id="mousic"><a href="#">鬼畜</a></div>
+				<div id="mousic"><a href="#">有声动漫</a></div>
+				<div id="mousic"><a href="#">游戏故事</a></div>
+				<div id="mousic"><a href="#">游戏攻略</a></div>
+				<div id="mousic"><a href="#">解说</a></div>
+				<div id="mousic"><a href="#">杂谈</a></div>
+				<div id="mousic"><a href="#">大角虫</a></div>
+				<div id="mousic"><a href="#">文艺</a></div>
+				</div>
+				</div>
+				<div id="fourth_dr" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);">
+				<img src="戏曲.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">戏曲</a>
+				<div id="fourth_drf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">京剧</a></div>
+				<div id="mousic"><a href="#">黄梅戏</a></div>
+				<div id="mousic"><a href="#">越剧</a></div>
+				<div id="mousic"><a href="#">昆曲</a></div>
+				<div id="mousic"><a href="#">地方戏</a></div>
+				<div id="mousic"><a href="#">豫剧</a></div>
+				<div id="mousic"><a href="#">秦腔</a></div>
+				<div id="mousic"><a href="#">评剧</a></div>
+				<div id="mousic"><a href="#">粤剧</a></div>
+				<div id="mousic"><a href="#">沪剧</a></div>
+				<div id="mousic"><a href="#">二人转</a></div>
+				<div id="mousic"><a href="#">河南坠子</a></div>
+				<div id="mousic"><a href="#">评弹</a></div>
+				<div id="mousic"><a href="#">晋剧</a></div>
+				<div id="mousic"><a href="#">蒲剧</a></div>
+				<div id="mousic"><a href="#">吕剧</a></div>
+				<div id="mousic"><a href="#">滑稽戏</a></div>
+				</div>
+				</div>
+			</div>
+			
+			<!-- 特色分区 -->
+			<div id="fifth" style="margin-top: 20px;background-color: white;padding-top: 10px;">
+			<div id="fifth_u" style="width: 60%;">
+				<div id="a" style="width: 5px;height: 18px;background-color: #FF9800;border-radius: 10px;margin-right: 8px;"></div>
+				特色
+				</div>
+				<hr style="color: red;width: 90%;margin: 0px;">
+			  <div id="fifth_l" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="广播.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">广播剧</a>
+				<div id="fifth_lf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">都市</a></div>
+				<div id="mousic"><a href="#">校园</a></div>
+				<div id="mousic"><a href="#">科幻</a></div>
+				<div id="mousic"><a href="#">玄幻</a></div>
+				<div id="mousic"><a href="#">惊悚</a></div>
+				<div id="mousic"><a href="#">悬疑</a></div>
+				<div id="mousic"><a href="#">喜剧</a></div>
+				<div id="mousic"><a href="#">江湖</a></div>
+				<div id="mousic"><a href="#">穿越</a></div>
+				<div id="mousic"><a href="#">福利</a></div>
+				<div id="mousic"><a href="#">宫廷</a></div>
+				</div>
+				</div>
+				<div id="fifth_m" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0.16);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="电台.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">电台</a>
+				<div id="fifth_mf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">综合台</a></div>
+				<div id="mousic"><a href="#">音乐台</a></div>
+				<div id="mousic"><a href="#">文艺台</a></div>
+				<div id="mousic"><a href="#">经济台</a></div>
+				<div id="mousic"><a href="#">校园台</a></div>
+				<div id="mousic"><a href="#">交通台</a></div>
+				<div id="mousic"><a href="#">新闻台</a></div>
+				<div id="mousic"><a href="#">故事台</a></div>
+				<div id="mousic"><a href="#">都市台</a></div>
+				</div>
+				</div>
+				 <div id="fifth_r" style="height:300px;width:30%;text-align:center; border-right: 1px solid rgba(95, 84, 84, 0);border-bottom: 1px solid rgba(95, 84, 84, 0.54);;">
+				<img src="汽车.png" style="padding-top: 31px;margin-right: 0px;margin-left: 20px;width:30px;height: 30px;">
+				<a href="#" style="position: relative; top: -10px;text-decoration: none;">汽车</a>
+				<div id="fifth_rf" style="margin-top: 20px;">
+				<div id="mousic"><a href="#">购车</a></div>
+				<div id="mousic"><a href="#">用车</a></div>
+				<div id="mousic"><a href="#">说车</a></div>
+				<div id="mousic"><a href="#">评测</a></div>
+				<div id="mousic"><a href="#">维修改装</a></div>
+				<div id="mousic"><a href="#">车闻趣事</a></div>
+				<div id="mousic"><a href="#">品牌历史</a></div>
+				<div id="mousic"><a href="#">摩托车</a></div>
+				</div>
+				</div>
+			</div>
+		</div>
+		</main>
+	</div>
+</body>
+</html>

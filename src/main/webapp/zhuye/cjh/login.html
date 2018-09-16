@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	onsubmit=function(){
+		var ni=new RegExp("^[\u4E00-\u9FA5A-Za-z0-9_]{1,20}$");
+		var tell=new RegExp("^[1][0-9]{10}$");
+		var mima=new RegExp("^[A-Za-z0-9]{6,20}$");
+		if($("#tell").val()==""){
+			$("#tell").next("span").css("display","inline");
+				}else{
+					if(tell.test($("#tell").val())){
+						$("#tell").next("span").css("display","none");
+					}else{
+						$("#tell").next("span").text("帐号不符合要求");
+						$("#tell").next("span").css("display","inline");
+					}
+				}		
+		if($("#pw").val()==""){
+			$("#pw").next("span").css("display","inline");
+				}else{
+					if(mima.test($("#pw").val())){
+						$("#pw").next("span").css("display","none");
+					}
+					else{
+						$("#pw").next("span").text("密码不符合要求");
+						$("#pw").next("span").css("display","inline");
+					}
+				}
+	    } 
+});
+</script>
+<style type="text/css">
+body {
+	text-align: center;
+	background-image: url("背景2.jpg");
+	position: absolute;
+}
+
+input {
+	border-radius: 15px;
+	margin-top: 30px;
+	width: 240px;
+	height: 30px;
+	color: #823838;
+	background-color: rgba(30, 224, 233, 0.59);
+	border: 0px;
+}
+
+p {
+	font-size: 40px;
+	padding-top: 100px;
+}
+
+#left, #right {
+	position: relative;
+	width: 390px;
+	height: 380px;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	
+}
+
+#left {
+	height: 330px;
+	margin-top: 52px;
+	padding-left: 3px;
+	padding-top: 20px;
+	font-size: 50px;
+}
+
+#sel {
+	width: 85px;
+	height: 30px;
+	border: 0px;
+	border-radius: 15px;
+	background-color: rgb(20, 20, 20, 0.8);
+}
+
+#login {
+	left: 40px;
+	top: 50px;
+	width: 800px;
+	height: 400px;
+}
+
+#tell {
+	width: 150px;
+}
+
+#re {
+	width: 15px;
+	height: 15px;
+	margin: 0px;
+	position: relative;
+	top: 15px;
+}
+
+#right label {
+	position: relative;
+	top: 13px;
+	left: 5px;
+}
+
+#right {
+	padding-left: 10px;
+	padding-top:10px;
+  margin-top: 23px;
+  border-left: 1px solid rgba(46, 206, 176, 0.6);
+}
+#mi{
+position: relative;
+top: 12px;
+left: 18px;
+}
+span{
+color: red;
+display: none;
+}
+</style>
+</head>
+<body>
+	<p>登录喜马拉雅</p>
+	<div id="login">
+		<div id="left">喜马拉雅</div>
+		<form action="#">
+		<div id="right">
+			<div>
+				<select id="sel">
+					<option>中国&nbsp&nbsp&nbsp+86</option>
+					<option>阿鲁巴&nbsp&nbsp&nbsp+297</option>
+					<option>阿富汗&nbsp&nbsp&nbsp+92</option>
+					<option>韩国&nbsp&nbsp&nbsp+123</option>
+				</select> <input type="text" id="tell" placeholder="请输入您的注册手机号"">
+				<span>帐号必须填写</span>
+			</div>
+			<div>
+				<input type="password" id="pw" placeholder="请输入6～20位密码">
+				<span>密码必须填写</span>
+			</div>
+			<div>
+				<input type="checkbox" id="re"><label for="re">记住登录状态</label>&nbsp&nbsp<a
+					href="show.html" id="mi">找回密码</a>
+			</div>
+			<input type="submit" id="sum" value="登录">
+		</div>
+		</form>
+	</div>
+	没有帐号？
+	<a href="reg.html">立即注册</a>
+</body>
+</html>

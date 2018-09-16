@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>有声小说_有声读物_有声书在线收听_免费听书-喜马拉雅FM</title>
+<link rel="stylesheet" type="text/css" href="../youshengshu/audio.css">
+<link rel="stylesheet" type="text/css" href="../youshengshu/font-awesome.min.css">	
+<script type="text/javascript" src="../youshengshu/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../youshengshu/audio.js"></script>
+<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+			song : [
+				{
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+	}
+</script>
+<style type="text/css">
+	*{
+		padding:0;
+		margin:0;
+		font-family:"文泉驿等宽微米黑","microsoft YaHei","黑体";
+		font-size:14px;
+		color: #333;
+	}
+	#bigwindow{
+		width:1080px;
+		margin:0 auto;
+	}
+	#youshengshu{
+		width:1080px;
+		margin:0 auto;
+		padding-top: 90px;
+	}
+	#youshengshuhead{
+		width:1060px;
+		margin:0 auto;
+
+	}
+	#yss{
+		font-weight: normal;
+		color:#666;
+	}
+	.youshengshusmallblock{
+		width:1060px;
+		margin:0 auto;
+		padding:7px;
+	}
+	.youshengshubodytopleft{
+		float:left;
+		width:90px;
+		text-align: center;
+		font-weight: 700;
+	}
+	.namealltag{
+		color:#f86442;
+		border-left:1px solid black;
+		padding:0px 12px;
+	}
+	.youshengshubodytopleft{
+		margin-top:8px;
+		font-weight: 700;
+	}
+	a{
+		text-decoration: none;
+		line-height: 1.4;
+		color:#666;
+	}
+	a:hover{
+		color:#f86442;
+	}
+	#youshengshubodytopright{
+		overflow:hidden;
+		position: relative;
+		width:970px;
+	}
+	.indexestag{
+		padding:7px 12px;
+		display: inline-block;
+	}
+	#indexesoverflow:hover{
+		color:#f86442;
+		cursor: pointer;
+		
+	}
+	#indexesoverflow{
+		display: inline-block;
+	    height: 18px;
+	    font-size: 12px;
+	    line-height: 12px;
+	    margin:0 auto;
+	    color:#999;
+	    width:116px;
+	    background:transparent url(https://s1.xmcdn.com/lib/xmweb/images/web_bg_toggle_2154460.png) no-repeat;
+	}
+	#youshengshubodybottom{
+		text-align: center;
+    	line-height: 0;
+		
+	}
+	#Arrow{
+		border-left: 0;
+    	border-bottom: 0;
+	}
+	html{
+		background-color:pink;
+	}
+	#context{
+		width:1080px;
+		padding:20px;
+		margin: 0 auto;
+		float:left;
+	}
+	#contexthead{
+		padding:8px 0;
+		position: relative;
+		border-bottom: 1px solid gray;
+	}
+	#contextimg{
+		width:2px;
+		height:15px;
+		float:left;
+		background-color:#f86442;
+		border: 1px solid #f86442;
+		border-radius: 3px;
+		margin-top:3px;
+		line-height: 1.4;
+	}
+	h1{
+		font-size: 20px;
+    	font-weight: 400;
+    	padding-left:16px;
+    	display: inline-block;
+	}
+	#contextright{
+		display:inline-block;
+		margin-left:465px;
+	}
+	#contextrighttaga{
+		color:#f86442;
+	}
+	.contextrighttaga{
+		display:inline-block;
+		padding:5px 7px;
+	}
+	#contextcenter{
+		width:800px;
+		float: left;
+		margin-top:10px;
+	}
+	.contextcenterlabel{
+		width:140px;
+		height:210px;
+		float:left;
+		position: relative;
+	}
+	.contexcenterimg{
+		width:140px;
+		height:140px;
+	}
+	.contextcentertitle{
+		max-width:140px;
+		display: block;
+		color:black;
+		max-height:40px;
+		overflow:hidden;
+	}
+	.tpimg{
+		width:40px;
+		height:20px;
+		background-color:rgba(248,100,66,0.9);
+		color:white;
+		float:left;
+		position: absolute;
+		left:5px;
+		text-align:center;
+		border-bottom-right-radius: 5px;
+	}
+	.contextcenterline{
+		display: inline-block;	
+		margin-right:10px;
+	}
+	#paging{
+		margin: 0 auto;
+    	overflow: hidden;
+    	display: inline-block;
+    	vertical-align: middle;
+	}
+	.pagingdiv{
+		width:38px;
+		height:38px;
+		border: 1px solid gray;
+		border-right: none;
+		line-height: 38px;
+		text-align: center;
+		float: left;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	.pagingdiv:nth-child(8){
+		border-right: 1px solid gray;
+	}
+	#contextfooterdiv{
+    	text-align: center;
+	}
+	#pageNumber{
+		width:85px;
+		height:38px;
+		border: 1px solid gray;
+		color: inherit;
+	}
+	#jumpSubmit{
+		width:66px;
+		height:40px;
+		background-color: #f86442;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		color: #fff;
+		border:none;
+	}
+	#inputright{
+		display: inline-block;
+		line-height: 42px;
+	}
+	#contextRL{
+		width: 240px;
+		float: right;
+		border:1px solid red;
+	}
+	#contextcenterblock{
+		width:800px;
+		float:left;
+	}
+	.RLTitleLeft{
+		float:left;
+		font-size: 18px;
+    	font-weight:400;
+    	line-height: 5px;
+    	color:#333;
+	}
+	.RLTitleright{
+		float:right;
+		font-size: 14px;
+    	color: #666;
+    	
+	}
+	.RLTitleLeh3{
+		display: block;
+		color: #333;
+		width:220px;
+    	padding: 12px 0 10.5px 0;
+    	font-size: 16px;
+    	font-weight:400;
+    	margin-bottom: 20px;
+	}
+	.RLTitleBlock{
+		display: inline-block;
+		margin-left:50px;
+		margin-bottom: 20px;
+	}
+	.RLTitleRightBlock{
+		float:right;	
+	}
+	.RLcontext{
+		border-top:1px solid gray;
+		padding:10px 0;
+		cursor: pointer;
+		width: 220px;
+		height:20px;
+	}
+	
+	#RLnum1{
+		width:20px;
+		height:20px;
+		background-color: #ff0d2a;
+		text-align: center;
+		float:left;
+		line-height: 20px;
+		color:white;
+		border-radius: 3px;
+		margin-right: 10px;
+	}
+	#RLnum2{
+		width:20px;
+		height:20px;
+		background-color: #ff723e;
+		text-align: center;
+		float:left;
+		line-height: 20px;
+		color:white;
+		border-radius: 3px;
+		margin-right: 10px;
+	}
+	#RLnum3{
+		background-color: #ffc602;
+		color:white;
+	}
+	.RLnum{
+		width:20px;
+		height:20px;
+		text-align: center;
+		float:left;
+		line-height: 20px;
+		border-radius: 3px;
+		margin-right: 10px;
+		color:#999;
+	}
+	.RLnuma{
+		color: #666;
+    	font-size: 14px;
+    	line-height: 1.4;
+	}
+	.RLdiv{
+		float:right;
+		overflow:hidden;
+		text-overflow:ellipsis;/*文字溢出的部分隐藏并用省略号代替*/
+		white-space:nowrap;/*文本不自动换行*/
+		width:190px;
+		color: #666;
+	}
+	.RLdiv:hover {
+		color:#f86442;
+	}
+</style>
+</head>
+<body>
+	<!-- 头部分 -->
+		
+		
+		<header class="header">
+			<div class="header_d1">
+				<img src="img/logo_f4a8f02.png">
+				<a class="header_a1" href="http://www.baidu.com"><span>发现</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>我的</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>app下载</span></a>
+				<div id="head_ss"><input type="text" placeholder="专辑/声音/用户" ><a href="http://www.baidu.com"><img src="img/sistrix1.png"></a></div>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/cloudversify1.png"><p>&nbsp&nbsp上传&nbsp&nbsp</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/docker1.png"><p>主播后台</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/bullhorn1.png"><p>有声化</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/itunes-note1.png"><p>小雅音箱</p></a>
+			</div>
+		</header>
+		
+		
+		
+		<!-- 播放器部分 -->
+		
+		
+		<div class="audio-box">
+			<div class="audio-container">
+				<div class="audio-view">
+					<div class="audio-cover"></div>
+					<div class="audio-body">
+						<h3 class="audio-title">未知歌曲</h3>
+						<div class="audio-backs">
+							<div class="audio-this-time">00:00</div>
+							<div class="audio-count-time">00:00</div>
+							<div class="audio-setbacks">
+								<i class="audio-this-setbacks">
+									<span class="audio-backs-btn"></span>
+								</i>
+								<span class="audio-cache-setbacks">
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="audio-btn">
+						<div class="audio-select">
+							<div action="prev" class="icon-fast-backward"></div>
+							<div action="play" data-on="icon-play" data-off="icon-pause" class="icon-play"></div>
+							<div action="next" class="icon-fast-forward"></div>
+							<!--<div action="menu" class="icon-list-alt"></div>-->
+							<div action="volume" class="icon-volume-up">
+								<div class="audio-set-volume">
+									<div class="volume-box">
+										<i><span  class="audio-backs-btn"></span></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div id="bigwindow">
+		<div id="youshengshu">
+			<div id="youshengshuhead"><a href="#">首页></a><span id="yss">有声书</span></div>
+				<div id="youshengshubody">
+					<div id="youshengshubodytop" class="youshengshusmallblock">
+						<div class="youshengshubodytopleft">有声书</div>
+						<div id="youshengshubodytopright">
+							<a class="namealltag" href="#">全部</a>
+							<a class="indexestag" href="#">文学</a>
+							<a class="indexestag" href="#">言情</a>
+							<a class="indexestag" href="#">生活</a>
+							<a class="indexestag" href="#">悬疑</a>
+							<a class="indexestag" href="#">教材</a>
+							<a class="indexestag" href="#">都市</a>
+							<a class="indexestag" href="#">经典</a>
+							<a class="indexestag" href="#">幻想</a>
+							<a class="indexestag" href="#">童书</a>
+							<a class="indexestag" href="#">武侠</a>
+							<a class="indexestag" href="#">励志</a>
+							<a class="indexestag" href="#">历史小说</a>
+							<a class="indexestag" href="#">社科</a>
+							<a class="indexestag" href="#">官场商战</a>
+							<a class="indexestag" href="#">商业</a>
+							<a class="indexestag" href="#">外文原版</a>
+						</div>
+					</div>
+					<div  class="youshengshusmallblock">
+						<div class="youshengshubodytopleft">人群</div>
+						<div id="youshengshubodytopright">
+							<a class="namealltag" href="#">全部</a>
+							<a class="indexestag" href="#">男性</a>
+							<a class="indexestag" href="#">女性</a>
+							<a class="indexestag" href="#">8090</a>
+							<a class="indexestag" href="#">上班族</a>
+							<a class="indexestag" href="#">宅男</a>
+							<a class="indexestag" href="#">文青</a>
+							<a class="indexestag" href="#">管理层</a>
+							<a class="indexestag" href="#">小清新</a>
+						</div>
+					</div>
+					<div  class="youshengshusmallblock">
+						<div class="youshengshubodytopleft">是否完本</div>
+						<div id="youshengshubodytopright">
+							<a class="namealltag" href="#">全部</a>
+							<a class="indexestag" href="#">连载中</a>
+							<a class="indexestag" href="#">已完本</a>
+						</div>
+					</div>
+					<div class="youshengshusmallblock">
+						<div class="youshengshubodytopleft">是否付费</div>
+						<div id="youshengshubodytopright">
+							<a class="namealltag" href="#">全部</a>
+							<a class="indexestag" href="#">付费</a>
+							<a class="indexestag" href="#">免费</a>
+						</div>
+					</div>
+					<div id="youshengshubodybottom"><span id="indexesoverflow">收起筛选^</span></div>
+				</div>
+				<div id="context">
+				<div id="contextcenterblock">
+					<div id="contexthead">
+						<div id="contextimg"></div>
+						<h1>有声小说</h1>
+						<div id="contextright">
+							<a href="#" id="contextrighttaga" class="contextrighttaga">综合排序</a>
+							<a href="#" class="contextrighttaga">播放最多</a>
+							<a href="#" class="contextrighttaga">最近更新</a>
+						</div>
+					</div>
+					<div id="contextcenter">
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/1.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">高智商犯罪《死神的哈士奇》紫襟</a>
+								<a href="#" class="contextcenterby">by:有声的紫襟</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/2.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">《远大前程》(未删节完整版，比电视剧情节更完整)</a>
+								<a href="#" class="contextcenterby">by:喜马有声剧</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/3.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">末日乐园</a>
+								<a href="#" class="contextcenterby">by:章鱼讲故事</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/4.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">明末行</a>
+								<a href="#" class="contextcenterby">by:卓纳文化传媒</a>
+							</div>
+						</div>
+						<div class="contextcenterline">
+							<div class="contextcenterlabel">
+								<a href="#"><div class="tpimg">精品</div><img src="../project img/5.jpg" class="contexcenterimg"></a>
+								<a href="#" class="contextcentertitle">最春风</a>
+								<a href="#" class="contextcenterby">by:i姝姝</a>
+							</div>
+						</div>
+					<div id="contextfooter">
+						<div id="contextfooterdiv">
+							<div id="paging">
+								<div class="pagingdiv"><a class="paginga" href="#"><a>&lt</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>1</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>2</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>3</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>4</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>5</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>6</a></div>
+								<div class="pagingdiv"><a class="paginga" href="#"><a>&gt</a></div>
+							</div>
+							<div id="inputright">
+								<input type="text" placeholder="请输入页码" id="pageNumber"><input type="submit" value="跳转" id="jumpSubmit">
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+				<div class="contextRL">
+					<div class="RLTitleBlock">
+						<h3 class="RLTitleLeh3"><a class="RLTitleLeft" href="#">有声书免费榜</a><div class="RLTitleRightBlock"><a class="RLTitleRight" href="#">更多</a></div></h3>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum1" class="RLnum">1</div><div class="RLdiv" href="#" title="摸金天师(盗墓小说):紫襟故事">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum2" class="RLnum">2</div><div class="RLdiv" title="《阴间神探》紫襟故事">《阴间神探》紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum3" class="RLnum">3</div><div class="RLdiv" title="超品相师 丸子演播">超品相师 丸子演播</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">4</div><div class="RLdiv" title="老衲要还俗（第一部）爆笑不正经">老衲要还俗（第一部）爆笑不正经</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">5</div><div class="RLdiv" title="首席医官">首席医官</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">6</div><div class="RLdiv" title="逍遥派">逍遥派</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">7</div><div class="RLdiv" title="阴阳鬼术">阴阳鬼术</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">8</div><div class="RLdiv" title="大婚晚辰～军婚恩怨">大婚晚辰～军婚恩怨</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">9</div><div class="RLdiv" title="《剑来》 玄幻仙侠第一神书">《剑来》 玄幻仙侠第一神书</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">10</div><div class="RLdiv" title="妖孽歪传">妖孽歪传</div></a>
+						</div>
+					</div>	
+					<div class="RLTitleBlock">
+						<h3 class="RLTitleLeh3"><a class="RLTitleLeft" href="#">有声书付费榜</a><div class="RLTitleRightBlock"><a class="RLTitleRight" href="#">更多</a></div></h3>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum1" class="RLnum">1</div><div class="RLdiv" title="《我的老千生涯（付费版）》紫襟故事">《我的老千生涯（付费版）》紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum2" class="RLnum">2</div><div class="RLdiv" title="《阴间神探（VIP版）》紫襟故事">《阴间神探（VIP版）》紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum3" class="RLnum">3</div><div class="RLdiv" title="《斗破苍穹》20亿网络点击神作">《斗破苍穹》20亿网络点击神作</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">4</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">5</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">6</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">7</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">8</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">9</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">10</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+					</div>	
+					<div class="RLTitleBlock">
+						<h3 class="RLTitleLeh3"><a class="RLTitleLeft">有声书付费新品</a><div class="RLTitleRightBlock"><a class="RLTitleRight" href="#">更多</a></div></h3>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum1" class="RLnum">1</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事111111111</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum2" class="RLnum">2</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div id="RLnum3" class="RLnum">3</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">4</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">5</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">6</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">7</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">8</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">9</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+						<div class="RLcontext">
+							<a class="RLnuma" href="#"><div class="RLnum">10</div><div class="RLdiv">摸金天师(盗墓小说):紫襟故事</div></a>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	<div id="#"></div>
+	</div>
+</body>
+</html>

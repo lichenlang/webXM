@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/audio.css">
+<link rel="stylesheet" type="text/css" href="css/lbt.css">
+<title>旅游全部景点_景点攻略在线听_喜马拉雅FM-Mozilla Firefox</title>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/audio.js"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+
+			song : [
+				{
+
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+	}
+</script>
+<style type="text/css">
+	body{
+		background-color: rgba(255,37,0,0.23);
+	}
+	ul,li{list-style: none;padding:0;margin:0;}
+	.category-count{
+		width: 1200px;
+		margin: 20px auto 0;
+	}
+	.clearFloat:after{content: "";display: table;clear:both;}
+	.category-first{
+	font-size:15px;
+	border-color: 6px solid #f8d2d2;
+	margin: 0 auto;
+	background-color: rgba(30,213,233,0.07);
+	padding: 20px 10px;
+	font-family: serif;
+margin-bottom: 8px;
+
+	}
+	.category-first,a{
+		text-decoration: none;
+		padding: 10px;
+	}
+	.yihang{
+	width: 1080px;
+	 display: inline-block;
+	 text-align: center;
+	 padding-right: 200px;
+	}
+	category-first-row{
+	width: 1080px;
+	height: 214px;
+		text-align: center;
+		font-size: 20px;
+		padding: 20px 10px;
+	}
+	.general-album-list{
+	position:relative;
+			float: left;
+			width: 820px;
+		border: 5px solid;
+			background-color:rgba(30,213,233,0.07);
+	        margin-bottom: 40px;
+	}
+	.content-filter{
+		margin-right: 100px;	
+	}
+	.head{
+	text-align: right;
+	border-bottom:1px solid rgba(255,0,0,0.13);
+	margin-bottom: 50px;
+	 	}
+	.content.HxMH album-wrapper{
+		width: 140px;
+	}
+	.HHal layout-side{
+	width: 220px;
+	height: 150px;
+	}
+	.general-album-list .content li{float:left;}
+	.category-first-row .category-first-type-name{
+		float: left;
+		width: 90px;
+		text-align: center;
+		vertical-align:top;
+		display:inline-block;
+		padding: 7px 0;
+	}
+	.general-album-list{
+		margin-top: 8px;
+	}
+	.category-first-value-list{
+	padding: 8px;
+	}
+	.xui-card{
+		font-size:15px;
+		width: 240px;
+		height: 415px;
+		float: right;
+		background-color:rgba(30,213,233,0.07);
+	}
+	.category-first-swich{
+		text-align: center;
+	}
+	.HHal layout-side{
+		width:240px;
+		margin-left: 20px;
+	}
+	.album-wrapper .HxMH {
+		font-size: 15px;
+		color: #841313;
+	}
+	#less{
+		font-size: 14px;
+		color: gray;
+		padding-bottom: 5px;
+	}
+	.common-ranking-list .item.HHal {
+		border-bottom: 1px solid rgba(103,24,24,0.08) ;
+		padding: 10px;
+	}
+	.xui-card-head-title{
+		border-bottom: 1px solid gray;
+		color: purple;
+	}
+	.album-titlelg.HxMH{
+		display: block;
+	}
+	footer{
+		width:1080px;
+		border: 1px solid rgba(255,0,0,0.07);
+		margin: 20px auto 0;
+		overflow: hidden;
+	  margin-top: 20px;
+	}
+	.rootfooter-one{
+	width:225px;
+		float: left;
+		font-size:15px;
+		margin-right: 33px;
+		margin-top: 20px;
+		padding-top: 30px;
+	}
+	.rootfooter{
+		width: 1080px;
+		overflow:  hidden;
+		padding: 20px;
+		/*background-color:rgba(30,213,233,0.07);*/
+		text-align: center;
+		border: 1px solid rgba(255,0,0,0.09);
+	color: gray;
+	}
+	#pl{
+		margin-bottom: -8px;
+	}
+	.two{
+		float: left;
+	}
+	.two-flow{
+	display:inline-block; 
+	font-size: 15px;
+	color: gray;
+	}
+	.there-p{
+		font-size: 12px;
+		overflow: hidden;
+		float: left;
+		color:#999;
+		margin-bottom: -60px;
+			}
+	.four-title{
+	font-size: 12px;
+		float: left;
+		margin: 80px;
+		margin-bottom: -5px;
+	}
+	.five{
+    line-height:25px;
+		float: left;
+		margin-left:325px;
+		margin-bottom: -10px;
+		color: gray;
+	}
+	.six{
+	
+	line-height: 25px;
+		float: left;
+		margin-left:170px;
+		font-size: 10px;
+		color: gray;
+	}
+	.four-title a{
+		color: gray;
+	}
+	.rootfooter-one a{
+	color: gray;
+	}
+	.general-album-list .pagination-title{
+		margin: 0;
+		text-align: center;
+	}
+	.pagination-title .pagination .pagination-page .Yetd{
+		display: inline-block;
+		width:40px;
+		height:40px;
+		overflow: hidden;
+		line-height: 40px;
+	}
+	.pagination-title .pagination .pagination-page .page-item.Yetd{
+	border: 1px solid;
+	margin-top: 20px;
+	
+	}
+	.pagination-title .pagination  .quick-jump .Yetd{
+		display: inline-block;
+		width:90px;
+		line-height: 20px;
+		padding-right: 20px;
+	}
+	.quick-jump .Yetd{
+	
+	margin-bottom: 20px;
+	}
+	
+	
+</style>
+</head>
+<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/audio.css">
+		<title>喜马拉雅FM</title>
+		<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="js/audio.js"></script>
+		<script type="text/javascript">
+		window.onload = function() {
+		
+			var setConfig = {
+
+			song : [
+				{
+
+					title : 'china',
+					src : 'http://jqueryplugins.qiniudn.com/jq22m1.mp3',
+					cover : 'images/001.png'
+				},
+				{
+
+					title : '笑脸',
+					src : 'http://jq22.qiniudn.com/2_01.mp3',
+					cover : 'images/002.png'
+				}
+			],
+			error : function(meg){
+
+				console.log(meg);
+			}
+		};
+		var audioFn = audioPlay(setConfig);
+
+		if(audioFn){
+
+			//开始加载音频,true为播放,false不播放
+			audioFn.loadFile(1);
+		}
+		
+		
+	}
+</script>
+	
+	</head>
+	<body>
+		<!-- 头部分 -->
+		
+		
+		<header class="header">
+			<div class="header_d1">
+				<img src="img/logo_f4a8f02.png">
+				<a class="header_a1" href="http://www.baidu.com"><span>发现</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>我的</span></a>
+				<a class="header_a1" href="http://www.baidu.com"><span>app下载</span></a>
+				<div id="head_ss"><input type="text" placeholder="专辑/声音/用户" ><a href="http://www.baidu.com"><img src="img/sistrix1.png"></a></div>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/cloudversify1.png"><p>&nbsp&nbsp上传&nbsp&nbsp</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/docker1.png"><p>主播后台</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/bullhorn1.png"><p>有声化</p></a>
+				<a class="header_a2" href="http://www.baidu.com"><img src="img/itunes-note1.png"><p>小雅音箱</p></a>
+			</div>
+		</header>
+		
+		
+		
+		<!-- 播放器部分 -->
+		
+		
+		<div class="audio-box">
+		<div class="audio-container">
+
+			<div class="audio-view">
+				<div class="audio-cover"></div>
+				<div class="audio-body">
+					<h3 class="audio-title">未知歌曲</h3>
+					<div class="audio-backs">
+						<div class="audio-this-time">00:00</div>
+						<div class="audio-count-time">00:00</div>
+						<div class="audio-setbacks">
+							<i class="audio-this-setbacks">
+								<span class="audio-backs-btn"></span>
+							</i>
+							<span class="audio-cache-setbacks">
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="audio-btn">
+					<div class="audio-select">
+						<div action="prev" class="icon-fast-backward"></div>
+						<div action="play" data-on="icon-play" data-off="icon-pause" class="icon-play"></div>
+						<div action="next" class="icon-fast-forward"></div>
+						<!--<div action="menu" class="icon-list-alt"></div>-->
+						<div action="volume" class="icon-volume-up">
+							<div class="audio-set-volume">
+								<div class="volume-box">
+									<i><span  class="audio-backs-btn"></span></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	</body>
+<body>
+
+<form>
+<div class="yihang">
+<span class="yihang-item"><a href="">首页</a>&gt</span>
+<span><a href="">旅游</a></span>
+</div>
+<br>
+
+<main class="category-count">
+  <div class="category-first">
+	 <div class="category-first-row clearFloat">
+	   <div class="category-first-type-name">旅游</div>
+	   <div class="category-first-value-list">
+			<a href="">全部</a>
+			<a href="">历史</a>
+			<a href="">文化</a>
+			<a href="">户外</a>
+		 </div>
+	</div>
+		<div class="category-first-row clearFloat">
+		<div class="category-first-type-name">节目形式</div>
+		<div class="category-first-value-list">
+			<a href="">全部</a>
+			<a href="">攻略</a>
+			<a href="">读书</a>
+			<a href="">访谈</a>
+			<a href="">美文</a>
+		</div>
+		</div>	
+		<div class="category-first-row clearFloat">
+		<div class="category-first-type-name">地域</div>
+	  <div class="category-first-value-list" >
+			<a href="">全部</a>
+			<a href="">美国</a>
+			<a href="">英国</a>
+			<a href="">韩国</a>
+			<a href="">日本</a>
+			<a href="">泰国</a>
+			<a href="">美国</a>
+			<a href="">英国</a>
+			<a href="">韩国</a>
+			<a href="">日本</a>
+			<a href="">泰国</a>
+			<a href="">美国</a>
+			<a href="">英国</a>
+			<a href="">韩国</a>
+			<a href="">日本</a>
+			<a href="">泰国</a>
+			<a href="">韩国</a>
+			<a href="">日本</a>
+			<a href="">泰国</a>
+			<a href="">美国</a>
+			<a href="">英国</a>
+			<a href="">韩国</a>
+			<a href="">日本</a>
+	  </div>
+		</div>
+		<div class="category-first-row clearFloat">
+		<div class="category-first-type-name">省</div>
+		<div class="category-first-value-list">
+			<a href="">全部</a>
+			<a href="">北京</a>
+			<a href="">天津</a>
+			<a href="">上海</a>
+			<a href="">河北</a>
+			<a href="">辽宁</a>
+			<a href="">吉林</a>
+			<a href="">黑龙江</a>
+			<a href="">江苏</a>
+			<a href="">重庆</a>
+			<a href="">上海</a>
+			<a href="">河北</a>
+			<a href="">辽宁</a>
+			<a href="">吉林</a>
+			<a href="">黑龙江</a>
+			<a href="">江苏</a>
+			<a href="">重庆</a>
+			<a href="">上海</a>
+			<a href="">河北</a>
+			<a href="">辽宁</a>
+			<a href="">吉林</a>
+			<a href="">黑龙江</a>
+			<a href="">江苏</a>
+			<a href="">重庆</a>
+		 </div>
+		</div>
+		<div class="category-first-swich">
+		<span class="category-first-swicher">收起筛选
+		<span class="arrow arrow-up">^</span>
+		</span>
+		</div>
+  </div>
+	
+		<div class="general-album-list">
+		<h1 class="title">历史故事</h1>
+			<div class="head">
+				<div class="content-filter">
+					<a class="active" aria-current="true" href="/lvyou/lishi/">综合排序</a>
+					<a href="/lvyou/lishi/mostplays/">播放最多</a>
+					<a href="lvyou/lishi/updates/">最近更新</a>
+				</div>
+			</div>
+			<div class="content">
+				<ul class="clearFloat">
+					<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lishi/"><img src="http://imagev2.xmcdn.com/group16/M06/6A/4B/wKgDbFc3lKaCkdsYAAGdNQdtV30908.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="听北京" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lishi/4279998">听北京</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+						<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group12/M0A/55/2E/wKgDXFchGszxS2GMAADqqWEcY-o622.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="听北京" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">北京颐和园</a>
+							
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+						<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group46/M02/4E/EA/wKgKj1uKiqTC8UdSAAG8dncyBcw805.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="听北京" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">旅行的深度-欧洲地理与历史</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+						<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group1/M00/02/3E/wKgDrVCl2J2h_JBMAAW1wfcTcsY545.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="世界文明之源-古印度" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">世界文明之源-古印度</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group35/M08/1C/F7/wKgJnVoKRIaBZEBPAAMAIDzgZBI546.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="伦敦-四大世界城市之一" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">伦敦-四大世界城市之一</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group21/M04/7F/0D/wKgJKFihXIawZp5GAAE3gAMAKP8608.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="玩转西藏" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">玩转西藏</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group20/M0B/3F/DF/wKgJLFeQ3WCBSVagAAJRR08g9hE931.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="不能说的日本" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">不能说的日本</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group6/M09/72/59/wKgDg1T4A6mCofeGAAaPAauhfdQ830.png!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="声型漫步-苏州" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">声型漫步-苏州</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group38/M07/A0/4A/wKgJo1p8aB3CR-jZABDzuOOrwc8814.png!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="漫步西安-武汉" ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">漫步西安-武汉</a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+							<li>
+						<div class="HxMH album-wrapper">
+							<div class="HxMH album-wrapper-card"><a href="/lvyou/4279998"><img src="http://imagev2.xmcdn.com/group29/M07/CE/36/wKgJXVkjGvnwCW1ZAAW4tM9nbIE595.jpg!op_type=5&upload_type=album&device_type=ios&name=web_large&strip=0&quality=7" alt="走遍中国 " ></a></div>
+								<a class="HxMH album-titlelg" title="听北京" href="/lvyou/4279998">走遍中国 </a>
+								<a id="less" title="行者掌柜" href="/zhubo/44653470/">"by:"行者掌柜"</a>
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			
+			
+			<div class="pagination-title">
+				<nav class="Yetd pagination">
+					<ul class="Yetd pagination-page">
+						<li class="Yetd page-prev page-item"><a class="Yetd-one-link" href="#">&lt</a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">1</span></a></li>
+						<li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">2</</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">3</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">4</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">5</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">6</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">7</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">8</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">9</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">10</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">11</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">12</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">13</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">14</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">15</span></a></li>
+					  <li class="Yetd page-item"><a class="Yetd-one-link" href="#"><span class="Yetd">&gt</span></a></li>
+					</ul>
+					<div class="Yetd quick-jump">
+						<form class="Yetd">
+							<input type="number" placeholder="请输入页码" step="1" min="1" max="15" class="Yetd control-input" value>
+						  <button disabled type="submit" class="Yetd btn" >跳转</button>
+						
+						</form>
+					</div>
+				</nav>
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	
+			<div class="HHal common-ranking-list">
+				<div class="xui-card">
+					<div class="xui-card-head">
+						<h3 class="xui-card-head-title">历史排行榜</h3></div>
+							<div class="xui-card-body">
+								<ol class="HHal">
+									<li class="HHal item"><a class="HHal item-link" href="/lvyou/">三千年</a></li>
+									<li class="HHal item"><a class="HHal item-link" href="/lvyou/">故宫</a></li>
+									<li class="HHal item"><a class="HHal item-link" href="/lvyou/">颐和园</a></li>
+								<li class="HHal item"><a class="HHal item-link" href="/lvyou/">济南</a></li>
+								<li class="HHal item"><a class="HHal item-link" href="/lvyou/">烟花三月下扬州</a></li>
+								<li class="HHal item"><a class="HHal item-link" href="/lvyou/">苏州东坡肉</a></li>
+								</ol>
+							</div>
+				</div>
+			</div>
+			
+			
+</main>
+	
+	
+<footer>
+
+	<div class="rootfooter">
+		<div class=rootfooter-one>
+			<p>热门搜索</p>
+			<a href="#">鬼故事</a>
+			<a href="#">武侠小说</a>
+			<a href="#">京剧</a>
+			<a href="#">睡前故事</a>
+		</div>
+		<div class=rootfooter-one>
+			<p>特色产品</p>
+			<a href="#">新声活商城-开启你的新生活</a>
+			<a href="#">声创空间</a>
+			<a href="#">游戏联运</a>
+			<a href="#">街机</a>
+		</div>
+		<div class=rootfooter-one>
+			<p>关注我们</p>
+			<a href="#">官方博客</a>
+			<a href="#">微信公众号</a>
+			<a href="#">新浪微博</a>
+			<a href="#">QQ公众号</a>
+			<a href="#">贴吧</a>
+			<a href="#">兴趣部落</a>
+		</div>
+		
+	  <div class=rootfooter-one>
+			<p>APP下载</p>
+			<a href="#"><img src="erweima.png"></a>
+			<a href="#"><img src="ios.png"></a>
+	  </div>
+	</div>
+	<div class="bootfooter-two">
+			<p id="pl">合作与服务</p>
+		<div class="two">
+		<a href="#"><img src="img/footer3.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer1.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer4.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	  <div class="two">
+		<a href="#"><img src="img/footer2.png">
+			<div class="two-flow">
+			<span>开放平台</span>
+			<p>对接海量精彩内容</p>
+			</div>
+	  </div>
+	  </a>
+	</div>
+	
+	<div class="there">
+		<p class="there-p">历史故事频道为您提供丰富的历史故事有声内容，在这里您可以在线收听历史,历史遗迹,旅游历史等相关信息，
+		优质有声节目供您选择，就在喜马拉雅FM,喜马拉雅FM，
+		四亿用户的选择。旅游历史频道为您提供历史古迹、文化遗存、
+		墓葬遗址、宫殿庙宇、禅林寺院、亭台楼阁、建筑群落、
+		塔影桥虹等让您感兴趣的地方人文景点,在旅行中感受文化艺术的熏陶！
+		</p>
+	</div>
+	
+	<div class="four">
+		<div class="four-title">
+			<a href="#">关于我们&nbsp;|&nbsp</a>
+			<a href="#">联系我们&nbsp;|&nbsp</a>
+			<a href="#">公司新闻&nbsp;|&nbsp</a>
+			<a href="#">招贤纳士&nbsp;|&nbsp</a>
+			<a href="#">2019校园招聘&nbsp;|&nbsp</a>
+			<a href="#">使用协议&nbsp;|&nbsp</a>
+			<a href="#">版权声明&nbsp;|&nbsp</a>
+			<a href="#">开放平台&nbsp;|&nbsp</a>
+			<a href="#">直播平台&nbsp;|&nbsp</a>
+			<a href="#">自律承诺&nbsp;|&nbsp</a>
+		</div>
+		<p class="five">Copyright © 2012-2018 www.ximalaya.com lnc.ALL Rights Reserved</p>
+		<p class="six">上海证大喜马拉雅网络科技有限公司 版权所有  公司地址：上海市闵行区紫星路588号2幢2062室  客服热线：400-838-5616</p>
+	</div>
+	
+	
+
+</footer>
+</form>	
+</body>
+</html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div.tb{
+		width:1080px;
+		height:280px;
+	}
+	div.nr{
+		width:1080px;
+		height:1542px;
+		margin-top: 40px;
+	}
+
+	.bt{
+    width: 90px;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    color: #333;
+    font-size:14px;
+    float:left;
+    background-color: transparent;
+    text-decoration: none;
+    outline: 0;
+    margin-top: 8px;
+	}
+	a{
+    background-color: transparent;
+    text-decoration: none;
+    outline: 0;
+    font-size: 14px;
+	}
+ 	
+	#qb{
+	color: #f86422
+	}
+	#db{
+	width:800px;
+	margin:0;
+	font-size:20px;
+	line-height:1.4;
+	color:#333;
+	letter-spacing:0;
+	position:relative;
+	padding-left: 16px;
+	display: inline-block;
+	float: left;
+	border-bottom:1px solid #e8e8e8; 
+	}
+	#a{
+  display: inline-block;
+    max-width: 970px;
+    text-align: center;
+	}
+	
+	.gs{
+	width:96px;
+	height:28px;
+	  font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+    float:left ;
+	}
+	#px a{
+	width:56px;
+	line-height:36px;
+	margin:0 0 0 10px;
+	padding:0 5px 5px;
+	font-size:14px;
+	float:right;
+	}
+	.zj>ul{
+		width:800px;
+	}
+	#lei ul li{
+	 display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 20px;
+    width:140px;
+    height: 210px;
+    float: left;
+	}
+	#lei{
+		width:800px;
+		float: left;
+		margin-top: 20px;
+		position: absolute;
+	}
+	.wb{
+	   width: 140px;
+    height: 210px;
+    box-sizing: border-box;
+		}
+	.tp{
+		    height: 140px;
+		   overflow: hidden;
+	}
+	#xp{
+		width:140px;
+		cursor: pointer;
+		transition: all 0.6s;
+		overflow: hidden;
+	}
+	#xp:hover{
+				transform: scale(1.2);
+			}
+	
+	#tm{
+		font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 2;
+    box-orient: vertical;
+    max-width: 100%;
+    max-height: 40px;
+    margin: 6px 0 3px;
+    text-align: justify;
+    color: #333;
+	}
+	#zz{
+	 text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #999;
+	}
+	.ys{
+		width:240px;
+		height:930px;
+		float: right;
+		margin-top: 24px;
+		
+	}
+	#yn{
+		width:240px;
+		height:458px;
+		float: right;
+		padding-top: 40px;
+
+	}
+	
+	#a0{
+		font-size: 110%;
+		font-weight: 400;
+		position: absolute;
+		margin-top: -37px;
+	}
+	#a1{
+		float:;
+		font-size:80%;
+		float:right;
+		color: #333;
+		margin-top: -32px;
+	}
+	#a2{
+		    counter-reset: rankcounter;
+		 	margin-top: -28px;   
+	}
+	#a3{
+    line-height: 0;
+    padding: 10px 0;
+    border-bottom: 1px  dashed #d4d4d4;
+    overflow: hidden;
+	 text-overflow: ellipsis;
+	 font-weight: normal;
+	
+}
+	#a4{
+	color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	position: absolute;
+	margin-left: 10px;
+	width:180px;
+	margin-top: -4px;
+    
+	}
+	#a5{
+		margin: auto;
+	}
+	#a6{
+	padding-top: 20px;
+	 position: relative;
+    margin-left: -40px;
+	}
+	#s0{
+	 display: inline-block;
+    padding: 1px 0;
+    color: #fff;
+    width: 17px;
+    height:15px;
+    line-height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #f54545;
+    border-radius:4px; 
+    position: relative;
+	}
+	#s1{
+	 display: inline-block;
+    padding: 1px 0;
+    color: #999;
+    width: 17px;
+    height:15px;
+    line-height: 100%;
+    font-size: 15px;
+    text-align: center;
+    border-radius:4px; 
+    position: relative;
+	}
+	#s2{
+	 display: inline-block;
+    padding: 1px 0;
+    color: #fff;
+    width: 17px;
+    height:15px;
+    line-height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #ff723e;
+    border-radius:4px; 
+    position: relative;
+	}
+	#s3{
+	 display: inline-block;
+    padding: 1px 0;
+    color: #fff;
+    width: 17px;
+    height:15px;
+    line-height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color:#ffc602;
+    border-radius:4px; 
+    position: relative;
+	}
+	.t1{
+    font-size: 14px;
+    line-height: 1.4;
+	}
+	.t1 a{
+		    padding: 7px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: #666;
+	}
+	#f a:hover{
+		color:#FF8C00;
+	}
+	.xuan{
+	text-align:center
+	}
+
+
+	
+</style>
+<script type="text/javascript">
+
+</script>
+</head>
+<body id="f">
+	<!-- 页面头部 -->
+	<div class="tb">
+		<div class="t1">
+		<div class="bt">历史</div>
+		<div id="a">
+		<a href="#"id="qb">|  &nbsp 全部 &nbsp</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 正史 &nbsp</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp野史 &nbsp</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 军事 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 战争 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 名人 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 记实 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 传记 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 故事 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/">| &nbsp 名师 &nbsp |</a>
+		</div>
+	   </div>
+		
+		
+		<div class="t1">
+		<div>
+		<div class="bt">主播</div>
+		<div id="a">
+		<a href="#"id="qb">|  &nbsp 全部 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 易中天 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 王立群 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 记连海 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 钱文忠 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 阎崇年 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/zhengshi/mr3t1285/">  &nbsp 蒙曼 &nbsp |</a>
+		</div>
+		</div>
+		
+			<div class="t1">
+		<div class="bt">节目形式</div>
+		<div id="a">
+		<a href="#" id="qb">全部 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 读书 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 朗诵 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 赏析 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 脱口秀 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 演讲 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 访谈 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 纪录片 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 讲坛 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 儿童 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 精神 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 琴棋 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 名集 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 诸子 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 史鉴 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 经典 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 天地 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 自制 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 课堂 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 讲座 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 教材 &nbsp </a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623/">| &nbsp 讲座沙龙 &nbsp |</a>
+		</div>
+		</div>
+		
+		
+		
+		<div class="t1">
+		<div class="bt">年代</div>
+		<div id="a">
+		<a href="#"id="qb">|  &nbsp 全部 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 史前 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 夏商周 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 春秋战国 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 秦汉 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 三国 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 魏晋南北朝 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 隋唐 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 五代十国 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 宋元 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 明朝 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 清朝 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 民国 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 建国后 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 上古 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 古代 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 近代 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 现代 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 一战 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr10t623r26t1174/">  &nbsp 二战 &nbsp |</a>
+		</div>
+		<div>
+		
+		
+			<div class="t1">
+		<div class="bt">是否完本</div>
+		<div id="a">
+		<a href="#"id="qb">|  &nbsp 全部 &nbsp |</a>	
+		<a href="https://www.ximalaya.com/lishi/mr131t2560r132t2721/">  &nbsp 连载中 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr131t2560r132t2721/">  &nbsp 以完本 &nbsp |</a>
+		</div>
+		</div>
+		
+		
+			<div class="t1">
+		<div class="bt">是否付费</div>
+		<div id="a">
+		<a href="#"id="qb">|  &nbsp 全部 &nbsp |</a>	
+		<a href="https://www.ximalaya.com/lishi/mr131t2560/">  &nbsp 付费 &nbsp |</a>
+		<a href="https://www.ximalaya.com/lishi/mr131t2560/">  &nbsp 免费 &nbsp |</a>
+		</div>
+		</div>
+		
+			<div class="t1">
+		<div class="xuan">
+		<span class="shou">收起删选</span>
+		<span class="up">^</span>
+		</div>
+		</div>
+		</div>
+	</div>
+	<!-- 页面内容 -->
+	<div class="nr">
+	<!-- 顶部 -->
+
+	<div id="db">
+		<div class="gs">历史故事</div>
+		<div id="px">
+		<a href="https://www.ximalaya.com/lishi/mostplays/">综合排序</a>
+		<a href="https://www.ximalaya.com/lishi/mostplays/">播放最多</a>
+		<a href="https://www.ximalaya.com/lishi/mostplays/">最近更新</a>
+	</div>
+	</div>
+	
+	<!-- 中间 -->
+	<div class="zj">
+		<div id="lei">
+		<ul>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/18250038/">
+				<img id="xp" src="../imgs/25.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/18250038/">复旦陈正宏《史记》精讲</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/18250038">by : 复旦陈正宏教授</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/13396678/">
+				<img id="xp" src="../imgs/10.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/13396678/">易中天品三国</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/13396678/">by : 百家讲坛</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/5.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">“大力”史</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by : 大力丸儿</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/6.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">成败论乾隆</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by : 百家讲坛</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/13.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">听世界-三国 听谢涛</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by : 谢涛听世界</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/4.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">听世界-秦汉 听谢涛</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by : 谢涛听世界</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/29.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">话说五代</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by : 大宇茶馆</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/0.png"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">乱世枭雄杜月笙</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：扬腔扬调FM</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/17.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">大锤说史【周三、周日晚更新】</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：大锤说史</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/28.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">正经南宋史</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：詩展</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/12.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">一说《春秋》</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：一说春秋</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/27.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">混子曰：少年中国史</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：混子曰FM</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/18.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">宁小宁說不靠谱历史</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：宁小宁在拉萨</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/14.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">百家讲坛《曾国藩家训》- 郦波</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：经典online</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/11.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">国宝档案</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：任志宏时间</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/16.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">百家讲坛汉代风云人物</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：诸子百家争鸣</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/7.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">女皇武则天</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：百家讲坛</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/19.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">历史趣谈</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：历史趣谈</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/23.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">白话《资治通鉴》</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：京城人文君</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/26.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">绝密档案</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：大碗文化</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/8.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">神探狄仁杰【全集】</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：霍嫖姚</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/20.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">中国历史朝代简介</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：吴腾Rickey</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/22.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">秘史趣谈</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：十里铺人民广播频道</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/24.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">中国通史大师课</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：新亚文化</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/15.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">穿越火线：第一次世界大战</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：非星凡文化</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/1.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">知行合一：王阳明</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：秦东</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/2.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">万历十五年</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：朱小杰的围脖</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/9.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">毛泽东传</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：有声故事汇</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/3.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">听世界-战国 听谢涛</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：谢涛听世界</a>
+			</div>
+		</li>
+		<li >
+			<div class="wb">
+				<div class="tp">
+				<a  class="tchao"href="https://www.ximalaya.com/lishi/3144025/">
+				<img id="xp" src="../imgs/21.jpg"></a>
+				</div>
+				<a id="tm" href="https://www.ximalaya.com/lishi/3144025/">史记中的故事</a>
+				<a id="zz"  href="https://www.ximalaya.com/lishi/3144025/">by：Jason讲史记</a>
+			</div>
+		</li>
+		</ul>
+		</div>
+	</div>
+	
+	
+	<!-- 右上 -->
+
+	<div class="ys">
+	<div id="ysn">
+		<h3>
+		<div>
+		<div id="a5">
+		<a id="a0" href="https://www.ximalaya.com/lishi/top/75/">历史免费榜</a>
+		</div>
+		<div  id="a1">
+		<a  href="https://www.ximalaya.com/lishi/top/75/">更多</a>
+		</div>
+		<hr>
+		<div id="a2">
+		<ul id="a6">
+			<li id="a3">
+			<span id="s0">1</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">听世界-三国 听谢涛</a>
+			
+			</li>	
+			<li id="a3">
+			<span id="s2">2</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">易中天品三国</a>
+			</li>	
+			<li id="a3">
+			<span id="s3">3</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">“大力”史</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">4</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">听世界-秦汉 听谢涛</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">5</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">成败论乾隆</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">6</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">国宝档案</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">7</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">冷历史-在历史中找点有趣的</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">8</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">乱世枭雄杜月笙</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">9</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">历史趣谈</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">10</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">一说《春秋》</a>
+			</li>	
+		</ul>
+		</div>
+		</div>
+		
+		</h3>
+	</div>
+	
+	
+
+	
+	
+	<!-- 右下 -->
+	<div id="yn">
+		<h3>
+		<div>
+		<div id="a5">
+		<a id="a0" href="https://www.ximalaya.com/lishi/top/75/">历史付费榜</a>
+		</div>
+		<div  id="a1">
+		<a  href="https://www.ximalaya.com/lishi/top/75/">更多</a>
+		</div>
+		<hr>
+		<div id="a2">
+		<ul id="a6">
+			<li id="a3">
+			<span id="s0">1</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">复旦陈正宏《史记》精讲</a>
+			</li>	
+			<li id="a3">
+			<span id="s2">2</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">中国通史大师课</a>
+			</li>	
+			<li id="a3">
+			<span id="s3">3</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">百家讲坛姜鹏精读《资治通鉴》：战国到楚汉</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">4</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">谢涛细说三国番外篇（一）</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">5</span>
+			<a id="a4" href="https://www.ximalaya.com/lishi/top/75/">北大赵冬梅讲中国史</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">6</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">百家讲坛姜鹏精读《资治通鉴》·汉帝国</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">7</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">谢涛细说三国番外篇（二）</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">8</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">林汉达中国历史故事</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">9</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">张大春：细说三国</a>
+			</li>	
+			<li id="a3">
+			<span id="s1">10</span>
+			<a  id="a4"href="https://www.ximalaya.com/lishi/top/75/">掌柜心说《项羽传》</a>
+			</li>	
+		</ul>
+		</div>
+		</div>
+		</h3>
+		</div>
+		</div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
